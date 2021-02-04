@@ -10,9 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_28_091527) do
+ActiveRecord::Schema.define(version: 2021_02_04_120037) do
 
   create_table "customers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "customer_id"
     t.string "name"
     t.string "name_kana"
     t.date "birthday"
@@ -28,6 +29,28 @@ ActiveRecord::Schema.define(version: 2021_01_28_091527) do
     t.string "special_note"
     t.integer "remaining_number_of_pointcards"
     t.integer "remaining_number_of_stones"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "guest_reservations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "customer_id"
+    t.string "name_kana"
+    t.string "phone_number"
+    t.date "reservation_date"
+    t.time "reservation_time"
+    t.integer "introducer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "reservation_lists", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "customer_id"
+    t.string "name"
+    t.string "name_kana"
+    t.date "reservation_date"
+    t.time "reservation_time"
+    t.string "note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
