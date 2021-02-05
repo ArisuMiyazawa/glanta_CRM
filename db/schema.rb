@@ -13,7 +13,6 @@
 ActiveRecord::Schema.define(version: 2021_02_04_120037) do
 
   create_table "customers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "customer_id"
     t.string "name"
     t.string "name_kana"
     t.date "birthday"
@@ -45,6 +44,7 @@ ActiveRecord::Schema.define(version: 2021_02_04_120037) do
   end
 
   create_table "reservation_lists", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "reservation_id"
     t.integer "customer_id"
     t.string "name"
     t.string "name_kana"

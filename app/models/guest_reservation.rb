@@ -4,4 +4,7 @@ class GuestReservation < ApplicationRecord
   validates :reservation_date, presence: true
   validates :reservation_time, presence: true
   validates :ntroducer_id, presence: true
+
+  belongs_to :reservation_list
+  belongs_to :customer
 end

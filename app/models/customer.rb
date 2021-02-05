@@ -12,4 +12,5 @@ class Customer < ApplicationRecord
 
   validates_acceptance_of :agreement, allow_nil: false, on: :create
 
+  has_many :reservation_list
 end
