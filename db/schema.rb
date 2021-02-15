@@ -10,10 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_04_120037) do
+ActiveRecord::Schema.define(version: 2021_02_09_085231) do
 
   create_table "customers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "customer_id"
     t.string "name"
     t.string "name_kana"
     t.date "birthday"
@@ -24,9 +23,10 @@ ActiveRecord::Schema.define(version: 2021_02_04_120037) do
     t.string "email"
     t.string "line_id"
     t.string "allergy"
-    t.integer "introducer_id"
+    t.string "introducer_name"
     t.string "request"
-    t.string "special_note"
+    t.boolean "consent"
+    t.string "nail_technician_note"
     t.integer "remaining_number_of_pointcards"
     t.integer "remaining_number_of_stones"
     t.datetime "created_at", null: false
@@ -34,23 +34,15 @@ ActiveRecord::Schema.define(version: 2021_02_04_120037) do
   end
 
   create_table "guest_reservations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "customer_id"
-    t.string "name_kana"
-    t.string "phone_number"
-    t.date "reservation_date"
-    t.time "reservation_time"
-    t.integer "introducer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "reservation_lists", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "customer_id"
-    t.string "name"
-    t.string "name_kana"
+  create_table "reservations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.date "reservation_date"
     t.time "reservation_time"
     t.string "note"
+    t.string "customer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -1,0 +1,15 @@
+<div class="customer-index-wrapper">
+  <div class="container">
+    <h1>お客様リスト<h1>
+    <% @customer.each do |customer| %>
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <div class="customer-index-single">
+            <p><%= link_to customer.name_kana, edit_customer_path(customer.id) %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <%= link_to "新規登録", new_customer_path %>
+  </div>
+</div>
