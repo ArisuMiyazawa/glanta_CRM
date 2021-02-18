@@ -15,8 +15,6 @@ class CreateCustomers < ActiveRecord::Migration[5.2]
       t.string :request
       t.boolean :consent
       t.string :nail_technician_note
-      t.integer :remaining_number_of_pointcards
-      t.integer :remaining_number_of_stones
       t.timestamps
     end
   end

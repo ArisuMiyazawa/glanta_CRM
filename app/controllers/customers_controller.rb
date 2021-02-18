@@ -10,7 +10,7 @@ class CustomersController < ApplicationController
       end
 
     if @customer.save
-      redirect_to root_path, success: 'ご記入ありがとうございました'
+      redirect_to customer_path(id: @customer.id), success: 'ご記入ありがとうございました'
     else
       flash.now[:danger] = "ご記入内容に誤りがあります"
       render :new
@@ -27,11 +27,15 @@ class CustomersController < ApplicationController
   def update
     @customer = find_customer_by_id
     @customer.update(customer_params)
-    redirect_to "#"
+    redirect_to customer_path(id: @customer.id)
   end
 
   def index
     @customer = Customer.order :name_kana
+  end
+
+  def show
+    @customer = find_customer_by_id
   end
 
   private
@@ -40,6 +44,17 @@ class CustomersController < ApplicationController
   end
 
   def find_customer_by_id
-    Customer.find(params[:customer_id])
+    Customer.find(params[:id])
   end
+
+  #def birthday_join
+    #date = params[:user][:birthday]
+
+    #if date["birthday(1i)"].empty? && date["birthday(2i)"].empty? && date["birthday(3i)"].empty?
+      #return
+    #end
+
+    #Date.new date["birthday(1i)"].to_i,date["birthday(2i)"].to_i,date["birthday(3i)"].to_i
+
+  #end
 end

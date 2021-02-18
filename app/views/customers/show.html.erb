@@ -1,0 +1,54 @@
+<div class="customers-new-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-offset-4 col-md-4 customers-new-container">
+        <h1 class="text-center text-white">詳細ページ</h1>
+         <div class="text-white">
+         <%= @customer.name %>
+         </div>
+         <div class="text-white">
+         <%= @customer.name_kana %>
+         </div>
+         <div class="text-white">
+         <%= @customer.birthday %>
+         </div>
+         <div class="text-white">
+         <%= @customer.job %>
+         </div>
+         <div class="text-white">
+         <%= @customer.postcode %>
+         </div>
+         <div class="text-white">
+         <%= @customer.street_address %>
+         </div>
+         <div class="text-white">
+         <%= @customer.phone_number %>
+         </div>
+         <div class="text-white">
+         <%= @customer.email %>
+         </div>
+         <div class="text-white">
+         <%= @customer.line_id %>
+         </div>
+         <div class="text-white">
+         <%= @customer.allergy %>
+         </div>
+         <div class="text-white">
+         <%= @customer.introducer_name %>
+         </div>
+         <div class="text-white">
+         <%= @customer.request %>
+         </div>
+         <div class="text-white">
+         <%= @customer.consent %>
+         </div>
+         <div class="text-white">
+         <%= @customer.nail_technician_note %>
+         </div>
+          <%= link_to "編集", edit_customer_path %>
+          <%= link_to "カルテ", "#" %>
+          <%= link_to "予約", "#" %>
+      </div>
+    </div>
+  </div>
+</div>

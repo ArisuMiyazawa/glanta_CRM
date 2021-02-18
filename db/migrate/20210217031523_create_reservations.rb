@@ -4,6 +4,8 @@ class CreateReservations < ActiveRecord::Migration[5.2]
       t.date :reservation_date
       t.time :reservation_time
       t.string :note
+      t.integer :remaining_number_of_pointcards
+      t.integer :remaining_number_of_stones
       t.string :customer_id
       t.timestamps
     end

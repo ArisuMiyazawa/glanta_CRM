@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_09_085231) do
+ActiveRecord::Schema.define(version: 2021_02_17_031523) do
 
   create_table "customers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -27,13 +27,6 @@ ActiveRecord::Schema.define(version: 2021_02_09_085231) do
     t.string "request"
     t.boolean "consent"
     t.string "nail_technician_note"
-    t.integer "remaining_number_of_pointcards"
-    t.integer "remaining_number_of_stones"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "guest_reservations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -42,6 +35,8 @@ ActiveRecord::Schema.define(version: 2021_02_09_085231) do
     t.date "reservation_date"
     t.time "reservation_time"
     t.string "note"
+    t.integer "remaining_number_of_pointcards"
+    t.integer "remaining_number_of_stones"
     t.string "customer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
