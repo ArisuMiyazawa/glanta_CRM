@@ -25,7 +25,7 @@ h1, h2 {
 
 .customers-new-wrapper {
   width: 100vw;
-  height: 200vh;
+  height: 250vh;
   background-image: image-url('#');
   background-position: center center;
   background-repeat: no-repeat;
@@ -77,4 +77,27 @@ h1, h2 {
       margin-bottom: 20px;
     }
   }
+}
+
+.reservations-index-wrapper {
+  width: 100vw;
+  height: 200vh;
+  background-image: image-url('#');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #464646;
+
+  .reservations-index-container {
+    padding-top: 220px;
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.search-form {
+  margin-bottom: 20px;
 }

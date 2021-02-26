@@ -11,11 +11,10 @@ class CreateCustomers < ActiveRecord::Migration[5.2]
       t.string :email
       t.string :line_id
       t.string :allergy
-      t.integer :introducer_id
+      t.string :introducer_name
       t.string :request
-      t.string :special_note
-      t.integer :remaining_number_of_pointcards
-      t.integer :remaining_number_of_stones
+      t.boolean :consent
+      t.string :nail_technician_note
       t.timestamps
     end
   end

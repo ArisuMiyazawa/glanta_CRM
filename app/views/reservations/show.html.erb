@@ -1,0 +1,24 @@
+<div class="customers-new-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-offset-4 col-md-4 customers-new-container">
+        <h1 class="text-center text-white">予約確認</h1>
+         <div class="text-center text-white">
+         <%= @customer.name_kana %>様
+         </div>
+         <div class="text-center text-white">
+         <%= @reservation.reservation_date %>
+         </div>
+         <div class="text-center text-white">
+         <%= @reservation.reservation_time %>
+         </div>
+         <div class="text-center text-white">
+         <%= @reservation.note %>
+         </div>
+          <%= link_to "編集", edit_customer_path %>
+          <%= link_to "カルテ", "#" %>
+          <%= link_to "次回予約", new_reservation_path(customer_id: @customer.id) %>
+      </div>
+    </div>
+  </div>
+</div>

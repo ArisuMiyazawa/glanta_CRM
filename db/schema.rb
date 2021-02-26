@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_04_120037) do
+ActiveRecord::Schema.define(version: 2021_02_17_091711) do
 
   create_table "customers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -23,36 +23,36 @@ ActiveRecord::Schema.define(version: 2021_02_04_120037) do
     t.string "email"
     t.string "line_id"
     t.string "allergy"
-    t.integer "introducer_id"
+    t.string "introducer_name"
     t.string "request"
-    t.string "special_note"
-    t.integer "remaining_number_of_pointcards"
-    t.integer "remaining_number_of_stones"
+    t.boolean "consent"
+    t.string "nail_technician_note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "guest_reservations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "customer_id"
-    t.string "name_kana"
-    t.string "phone_number"
-    t.date "reservation_date"
-    t.time "reservation_time"
-    t.integer "introducer_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "reservation_lists", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "reservation_id"
-    t.integer "customer_id"
-    t.string "name"
-    t.string "name_kana"
+  create_table "reservations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.date "reservation_date"
     t.time "reservation_time"
     t.string "note"
+    t.bigint "customer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["customer_id"], name: "index_reservations_on_customer_id"
+  end
+
+  create_table "treatment_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "gel_used"
+    t.integer "amount_of_money"
+    t.string "treatment_menu"
+    t.integer "remaining_number_of_pointcards"
+    t.integer "remaining_number_of_stones"
+    t.string "other"
+    t.string "customer_id"
+    t.string "reservation_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "reservations", "customers"
 end

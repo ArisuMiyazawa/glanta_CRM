@@ -1,13 +1,16 @@
 Rails.application.routes.draw do
-  get 'reservation_lists/index'
-  get 'rails/g'
-  get 'rails/ReservationList'
-  get 'guest_reservations/new'
+
+  get 'treatment_records/new'
   root 'pages#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :customers do
+    collection do
+      get :guest
+      post :guest_create
+    end
+  end
+  resources :reservations
 
-  resources :customers
-  resources :guest_reservations
+  resource :treatment_records
   get 'customer/consent_form', to: 'customers#consent_form'
-  get 'guest_reservations/new', to: 'guest_reservations#new'
 end
