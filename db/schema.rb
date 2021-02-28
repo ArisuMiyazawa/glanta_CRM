@@ -48,11 +48,15 @@ ActiveRecord::Schema.define(version: 2021_02_17_091711) do
     t.integer "remaining_number_of_pointcards"
     t.integer "remaining_number_of_stones"
     t.string "other"
-    t.string "customer_id"
-    t.string "reservation_id"
+    t.bigint "customer_id"
+    t.bigint "reservation_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["customer_id"], name: "index_treatment_records_on_customer_id"
+    t.index ["reservation_id"], name: "index_treatment_records_on_reservation_id"
   end
 
   add_foreign_key "reservations", "customers"
+  add_foreign_key "treatment_records", "customers"
+  add_foreign_key "treatment_records", "reservations"
 end

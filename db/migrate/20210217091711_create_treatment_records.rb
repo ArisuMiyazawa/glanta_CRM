@@ -7,8 +7,8 @@ class CreateTreatmentRecords < ActiveRecord::Migration[5.2]
       t.integer :remaining_number_of_pointcards
       t.integer :remaining_number_of_stones
       t.string :other
-      t.string :customer_id
-      t.string :reservation_id
+      t.references :customer, foreign_key: true
+      t.references :reservation, foreign_key: true
       t.timestamps
     end
   end
