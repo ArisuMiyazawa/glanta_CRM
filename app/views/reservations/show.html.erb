@@ -16,7 +16,7 @@
          <%= @reservation.note %>
          </div>
           <%= link_to "予約変更", edit_reservation_path(customer_id: @customer.id) %>
-          <%= link_to "カルテ", "#" %>
+          <%= link_to "カルテ", new_treatment_records_path(customer_id: @customer.id, reservation_id: @reservation.id) %>
           <%= link_to "次回予約", new_reservation_path(customer_id: @customer.id) %>
       </div>
     </div>

@@ -8,7 +8,7 @@ class CustomersController < ApplicationController
     @customer = Customer.new(guest_input_paramas)
     @customer.guest_account = true
     if @customer.save
-      redirect_to reservation_path, success: '登録が完了しました'
+      redirect_to reservation_path(id: @customer.id), success: '登録が完了しました'
     else
       flash.now[:danger] = "ご記入内容に誤りがあります"
       render :guest
