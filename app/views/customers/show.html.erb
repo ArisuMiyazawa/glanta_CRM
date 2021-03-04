@@ -46,8 +46,8 @@
          <%= @customer.nail_technician_note %>
          </div>
           <%= link_to "編集", edit_customer_path %>
-          <%= link_to "カルテ", "#" %>
-          <%= link_to "予約", "#" %>
+          <%= link_to "カルテ一覧", treatment_records_path(customer_id: @customer.id) %>
+          <%= link_to "次回予約", new_reservation_path(customer_id: @customer.id) %>
       </div>
     </div>
   </div>

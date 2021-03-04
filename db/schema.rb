@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_17_031523) do
+ActiveRecord::Schema.define(version: 2021_03_04_123243) do
 
   create_table "customers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -35,11 +35,35 @@ ActiveRecord::Schema.define(version: 2021_02_17_031523) do
     t.date "reservation_date"
     t.time "reservation_time"
     t.string "note"
+    t.bigint "customer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["customer_id"], name: "index_reservations_on_customer_id"
+  end
+
+  create_table "treatment_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "gel_used"
+    t.integer "amount_of_money"
+    t.string "treatment_menu"
     t.integer "remaining_number_of_pointcards"
     t.integer "remaining_number_of_stones"
-    t.string "customer_id"
+    t.string "other"
+    t.bigint "customer_id"
+    t.bigint "reservation_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["customer_id"], name: "index_treatment_records_on_customer_id"
+    t.index ["reservation_id"], name: "index_treatment_records_on_reservation_id"
+  end
+
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "reservations", "customers"
+  add_foreign_key "treatment_records", "customers"
+  add_foreign_key "treatment_records", "reservations"
 end
