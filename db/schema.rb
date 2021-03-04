@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_17_091711) do
+ActiveRecord::Schema.define(version: 2021_03_04_123243) do
 
   create_table "customers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -54,6 +54,13 @@ ActiveRecord::Schema.define(version: 2021_02_17_091711) do
     t.datetime "updated_at", null: false
     t.index ["customer_id"], name: "index_treatment_records_on_customer_id"
     t.index ["reservation_id"], name: "index_treatment_records_on_reservation_id"
+  end
+
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "reservations", "customers"

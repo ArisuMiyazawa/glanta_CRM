@@ -8,7 +8,7 @@ class TreatmentRecordsController < ApplicationController
   def create
     @treatment_record = TreatmentRecord.new(treatment_record_params)
     if @treatment_record.save
-      redirect_to treatment_records_path(id: @treatment_record.id), success: 'カルテ登録が完了しました'
+      redirect_to treatment_record_path(id: @treatment_record.id), success: 'カルテ登録が完了しました'
     else
       flash.now[:danger] = "記入内容に誤りがあります"
       render :new
@@ -20,6 +20,21 @@ class TreatmentRecordsController < ApplicationController
     @customer = Customer.find(@treatment_record.customer_id)
     @reservation = Reservation.find(@treatment_record.reservation_id)
   end
+
+  def edit
+    @treatment_record = TreatmentRecord.find(params[:id])
+  end
+
+  def update
+    @treatment_record = TreatmentRecord.find(params[:id])
+    @treatment_record.update(treatment_record_params)
+    redirect_to treatment_record_path(id: @treatment_record.id), success: 'カルテ内容を変更しました'
+  end
+
+  def index
+    @customer = find_customer_by_id
+  end
+
 
   private
   def treatment_record_params

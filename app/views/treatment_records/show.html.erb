@@ -23,7 +23,8 @@
           <div class="text-white">その他：
             <%= @treatment_record.other %>
           </div>
-          <%= link_to "編集", edit_treatment_records_path(customer_id: @customer.id, reservation_id: @reservation.id) %>
+          <%= link_to "編集", edit_treatment_record_path(id: @treatment_record.id) %>
+          <%= link_to "カルテ一覧", treatment_records_path(customer_id: @customer.id) %>
       </div>
     </div>
   </div>
