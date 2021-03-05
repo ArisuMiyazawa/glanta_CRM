@@ -5,4 +5,8 @@ class TreatmentRecord < ApplicationRecord
   def customer_name_kana
     customer.name_kana
   end
+
+  def reservation_reservation_date
+    reservation.reservation_date
+  end
 end

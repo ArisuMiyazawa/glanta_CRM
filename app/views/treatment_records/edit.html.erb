@@ -4,32 +4,32 @@
       <div class="col-md-offset-4 col-md-4 customers-new-container">
         <h1 class="text-center text-white">カルテ編集</h1>
         <h2 class="text-center text-white"><%= @treatment_record.customer_name_kana %>様</h2>
-        <h3 class="text-center text-white"><%= @treatment_record.reservation_date %></h3>
+        <h3 class="text-center text-white"><%= @treatment_record.reservation_reservation_date %></h3>
         <%= form_for @treatment_record do |f| %>
-          <div class="form-group">
-            <%= f.label :amount_of_money, "金額", class: 'text-white' %>
-            <%= f.text_field :amount_of_money, class: 'form-control' %>
-          </div>
-          <div class="form-group">
-            <%= f.label :treatment_menu, "施術メニュー", class: 'text-white' %>
-            <%= f.text_field :treatment_menu, class: 'form-control' %>
-          </div>
-          <div class="form-group">
-            <%= f.label :gel_used, "使用ジェル", class: 'text-white' %>
-            <%= f.text_field :gel_used, class: 'form-control' %>
-          </div>
-          <div class="form-group">
-            <%= f.label :remaining_number_of_pointcards, "ポイントカード残数", class: 'text-white' %>
-            <%= f.number_field :remaining_number_of_pointcards, class: 'form-control', min: 0, max: 50 %>
-          </div>
-          <div class="form-group">
-            <%= f.label :remaining_number_of_stones, "ストーン残数", class: 'text-white' %>
-            <%= f.number_field :remaining_number_of_stones, class: 'form-control', min: 0, max: 50 %>
-          </div>
-          <div class="form-group">
-            <%= f.label :other, "その他", class: 'text-white' %>
-            <%= f.text_area :other, class: 'form-control', size: '30×10' %>
-          </div>
+        <div class="form-group">
+          <%= f.label :amount_of_money, "金額", class: 'text-white' %>
+          <%= f.text_field :amount_of_money, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :treatment_menu, "施術メニュー", class: 'text-white' %>
+          <%= f.text_field :treatment_menu, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :gel_used, "使用ジェル", class: 'text-white' %>
+          <%= f.text_field :gel_used, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :remaining_number_of_pointcards, "ポイントカード残数", class: 'text-white' %>
+          <%= f.number_field :remaining_number_of_pointcards, class: 'form-control', min: 0, max: 50 %>
+        </div>
+        <div class="form-group">
+          <%= f.label :remaining_number_of_stones, "ストーン残数", class: 'text-white' %>
+          <%= f.number_field :remaining_number_of_stones, class: 'form-control', min: 0, max: 50 %>
+        </div>
+        <div class="form-group">
+          <%= f.label :other, "その他", class: 'text-white' %>
+          <%= f.text_area :other, class: 'form-control', size: '30×10' %>
+        </div>
           <%= f.hidden_field :customer_id, value: @treatment_record.reservation.customer.id %>
           <%= f.hidden_field :reservation_id, value: @treatment_record.reservation.id %>
           <%= f.submit "登録", class: 'btn-block btn-white' %>

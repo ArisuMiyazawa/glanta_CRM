@@ -22,7 +22,7 @@ h1, h2, h3 {
 .top-hero-wrapper {
   width: 100vw;
   height: 100vh;
-  background-image: image-url('bg-top.png');
+  background-image: image-url('two-nail-polishes-on-pink.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -36,12 +36,34 @@ h1, h2, h3 {
     font-size: 56px;
     margin-bottom: 20px;
   }
+
+  h2 {
+    margin-bottom: 60px;
+  }
 }
 
 .form-control {
   height: 45px;
 }
 
+.users-new-wrapper {
+  width: 100vw;
+  height: 100vh;
+  background-image: image-url('two-nail-polishes-on-pink.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #464646;
+
+  .users-new-container {
+    padding-top: 220px;
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+  }
+}
 
 .customers-new-wrapper {
   width: 100vw;
