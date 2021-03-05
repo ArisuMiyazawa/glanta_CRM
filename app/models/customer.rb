@@ -1,6 +1,5 @@
 class Customer < ApplicationRecord
-  validates :name, length: {maximum: 15}
-  validates :name_kana, presence: true, length: {maximum: 15}
+  validates :name_kana, presence: true
   validates :phone_number, presence: true
   validates :introducer_name, presence: true
 
