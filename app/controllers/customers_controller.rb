@@ -40,12 +40,12 @@ class CustomersController < ApplicationController
 
   def update
     @customer = find_customer_by_id
-    @customer.update(customer_params)
+    @customer.update(customer_input_params)
     redirect_to customer_path(id: @customer.id), success: '登録内容を変更しました'
   end
 
   def index
-    @customer = Customer.order :reservation.name_kana
+    @customer = Customer.order :name_kana
   end
 
   def show

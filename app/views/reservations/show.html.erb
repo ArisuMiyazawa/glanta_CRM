@@ -2,21 +2,21 @@
   <div class="container">
     <div class="row">
       <div class="col-md-offset-4 col-md-4 customers-new-container">
-        <h1 class="text-center text-white">予約確認</h1>
-         <div class="text-center text-white">
+        <h1 class="text-center text-gray">予約確認</h1>
+         <div class="text-center text-gray">
          <%= @customer.name_kana %>様
          </div>
-         <div class="text-center text-white">
+         <div class="text-center text-gray">
          <%= @reservation.reservation_date %>
          </div>
-         <div class="text-center text-white">
+         <div class="text-center text-gray">
          <%= @reservation.reservation_time %>
          </div>
-         <div class="text-center text-white">
+         <div class="text-center text-gray">
          <%= @reservation.note %>
          </div>
           <%= link_to "予約変更", edit_reservation_path(customer_id: @customer.id) %>
-          <%= link_to "カルテ", new_treatment_records_path(customer_id: @customer.id, reservation_id: @reservation.id) %>
+          <%= link_to "カルテ作成", new_treatment_record_path(customer_id: @customer.id, reservation_id: @reservation.id) %>
           <%= link_to "次回予約", new_reservation_path(customer_id: @customer.id) %>
       </div>
     </div>

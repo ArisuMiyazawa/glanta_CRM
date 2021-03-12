@@ -2,25 +2,25 @@
   <div class="container">
     <div class="row">
       <div class="col-md-offset-4 col-md-4 customers-new-container">
-        <h1 class="text-center text-white">カルテ</h1>
-        <h2 class="text-center text-white"><%= @customer.name_kana %>様</h2>
-        <h3 class="text-center text-white"><%= @reservation.reservation_date %></h3>
+        <h1 class="text-center text-gray">カルテ</h1>
+        <h2 class="text-center text-gray"><%= @customer.name_kana %>様</h2>
+        <h3 class="text-center text-gray"><%= @reservation.reservation_date %></h3>
           <div class="text-white">支払い金額：
             <%= @treatment_record.amount_of_money %>
           </div>
-          <div class="text-white">施術メニュー：
+          <div class="text-gray">施術メニュー：
             <%= @treatment_record.treatment_menu %>
           </div>
-          <div class="text-white">使用ジェル：
+          <div class="text-gray">使用ジェル：
             <%= @treatment_record.gel_used %>
           </div>
-          <div class="text-white">ポイントカード残数：
+          <div class="text-gray">ポイントカード残数：
             <%= @treatment_record.remaining_number_of_pointcards %>
           </div>
-          <div class="text-white">ストーン残数：
+          <div class="text-gray">ストーン残数：
             <%= @treatment_record.remaining_number_of_stones %>
           </div>
-          <div class="text-white">その他：
+          <div class="text-gray">その他：
             <%= @treatment_record.other %>
           </div>
           <%= link_to "編集", edit_treatment_record_path(id: @treatment_record.id) %>
