@@ -1,9 +1,25 @@
-h1, h2, h3 {
+h1, h2{
+  margin-top: 100px;
   font-weight: 100;
+}
+
+h3 {
+  font-weight: 100;
+}
+
+.comment {
+  font-weight: 150;
+  color: #4e6eed;
 }
 
 .text-white {
   color: #fff;
+}
+
+.text-gray {
+  color: #4c5159;
+  margin-bottom: 10px;
+  font-size: 20px;
 }
 
 .btn-white {
@@ -19,22 +35,35 @@ h1, h2, h3 {
   }
 }
 
+.btn-gray {
+  color: #4c5159;
+  border: 1px solid #4c5159;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-size: 20px;
+  background-color: rgba(0,0,0,0.0);
+
+  &:hover {
+    color: #4e6eed;
+  }
+}
+
 .top-hero-wrapper {
   width: 100vw;
   height: 100vh;
-  background-image: image-url('two-nail-polishes-on-pink.jpg');
+  background-image: image-url('#');
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  background-color: #464646;
+  background-color: #fafdff;
 }
 
 .top-hero-container {
   padding-top: 220px;
   h1 {
-    font-size: 56px;
-    margin-bottom: 20px;
+    font-size: 40px;
+    margin-bottom: 30px;
   }
 
   h2 {
@@ -48,7 +77,7 @@ h1, h2, h3 {
 
 .navbar-transparent {
   margin-bottom: 0px;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0,0,0,0.4);
   a {
     color: #fff !important;
   }
@@ -59,7 +88,8 @@ h1, h2, h3 {
   }
 
   img {
-    height: 40px;
+    height: 50px;
+    filter: brightness(1) invert(0);
   }
 }
 
@@ -67,15 +97,17 @@ h1, h2, h3 {
 .users-new-wrapper {
   width: 100vw;
   height: 100vh;
-  background-image: image-url('two-nail-polishes-on-pink.jpg');
+  background-image: image-url('#');
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  background-color: #464646;
+  background-color: #fafdff;
 
   .users-new-container {
     padding-top: 220px;
+    //padding-bottom: 220px;
+    //margin-bottom: 100px;
 
     .form-group {
       margin-bottom: 20px;
@@ -86,20 +118,41 @@ h1, h2, h3 {
 .customers-new-wrapper {
   width: 100vw;
   height: 250vh;
-  background-image: image-url('#');
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  background-color: #464646;
+  background-color: #fafdff;
 
-  .customers-new-container {
-    padding-top: 220px;
+ .customers-new-container {
+  padding-top: 220px;
 
-    .form-group {
-      margin-bottom: 20px;
+   .form-group {
+    margin-bottom: 20px;
     }
   }
+}
+
+.title {
+  font-size: 40px;
+  margin-bottom: 50px;
+}
+
+.side-line {
+  padding: 0.25em 0.5em;
+  background: transparent;
+  border-left: solid 5px #ceddf5;
+}
+
+.dark-side-line {
+  padding: 0.25em 0.5em;
+  background: transparent;
+  border-left: solid 5px #728ab0;
+}
+
+.under-line {
+  border-bottom: solid 1px #6e7073;
+  margin-bottom: 20px;
 }
 
 .alert {
@@ -111,13 +164,16 @@ h1, h2, h3 {
 
 .customers-consent_form-wrapper{
   width: 100vw;
-  height: 100vh;
-  background-image: image-url('#');
+  height: 180vh;
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  background-color: #464646;
+  background-color: #fafdff;
+
+  li {
+  list-style: none;
+  }
 }
 
 .guests-new-wrapper {
@@ -128,7 +184,7 @@ h1, h2, h3 {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  background-color: #464646;
+  background-color: #fafdff;
 
   .guest-new-container {
     padding-top: 220px;
@@ -147,7 +203,7 @@ h1, h2, h3 {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  background-color: #464646;
+  background-color: #fafdff;
 
   .reservations-index-container {
     padding-top: 220px;
@@ -174,7 +230,7 @@ h1, h2, h3 {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  background-color: #464646;
+  background-color: #fafdff;
 
   .users-new-container {
     padding-top: 220px;

@@ -2,48 +2,48 @@
   <div class="container">
     <div class="row">
       <div class="col-md-offset-4 col-md-4 customers-new-container">
-        <h1 class="text-center text-white">詳細ページ</h1>
-         <div class="text-white">
-         <%= @customer.name %>
+        <h1 class="text-center text-gray title">詳細ページ</h1>
+         <div class="text-gray side-line under-line">
+         お名前：<%= @customer.name %>
          </div>
-         <div class="text-white">
-         <%= @customer.name_kana %>
+         <div class="text-gray side-line under-line">
+         ヨミガナ：<%= @customer.name_kana %>
          </div>
-         <div class="text-white">
-         <%= @customer.birthday %>
+         <div class="text-gray side-line under-line">
+         生年月日：<%= @customer.birthday %>
          </div>
-         <div class="text-white">
-         <%= @customer.job %>
+         <div class="text-gray side-line under-line">
+         ご職業：<%= @customer.job %>
          </div>
-         <div class="text-white">
-         <%= @customer.postcode %>
+         <div class="text-gray side-line under-line">
+         郵便番号：<%= @customer.postcode %>
          </div>
-         <div class="text-white">
-         <%= @customer.street_address %>
+         <div class="text-gray side-line under-line">
+         住所：<%= @customer.street_address %>
          </div>
-         <div class="text-white">
-         <%= @customer.phone_number %>
+         <div class="text-gray side-line under-line">
+         電話番号：<%= @customer.phone_number %>
          </div>
-         <div class="text-white">
-         <%= @customer.email %>
+         <div class="text-gray side-line under-line">
+         メールアドレス：<%= @customer.email %>
          </div>
-         <div class="text-white">
-         <%= @customer.line_id %>
+         <div class="text-gray side-line under-line">
+         LINE ID：<%= @customer.line_id %>
          </div>
-         <div class="text-white">
-         <%= @customer.allergy %>
+         <div class="text-gray side-line under-line">
+         アレルギー：<%= @customer.allergy %>
          </div>
-         <div class="text-white">
-         <%= @customer.introducer_name %>
+         <div class="text-gray side-line under-line">
+         ご紹介者様：<%= @customer.introducer_name %>
          </div>
-         <div class="text-white">
-         <%= @customer.request %>
+         <div class="text-gray side-line under-line">
+         爪のお悩み・ご要望：<%= @customer.request %>
          </div>
-         <div class="text-white">
-         <%= @customer.consent %>
+         <div class="text-gray side-line under-line">
+         利用規約：<%= @customer.consent %>
          </div>
-         <div class="text-white">
-         <%= @customer.nail_technician_note %>
+         <div class="text-gray side-line under-line">
+         ネイリストメモ：<%= @customer.nail_technician_note %>
          </div>
           <%= link_to "編集", edit_customer_path %>
           <%= link_to "カルテ一覧", treatment_records_path(customer_id: @customer.id) %>
