@@ -24,6 +24,7 @@
             <%= @treatment_record.other %>
           </div>
           <%= link_to "編集", edit_treatment_record_path(id: @treatment_record.id) %>
+          <%= link_to "削除", treatment_record_path(id: @treatment_record.id, customer_id: @customer.id), method: :delete, data:{confirm:"本当にカルテを削除しますか？"} %>
           <%= link_to "カルテ一覧", treatment_records_path(customer_id: @customer.id) %>
       </div>
     </div>

@@ -41,6 +41,13 @@ class TreatmentRecordsController < ApplicationController
     @reservation = find_reservation_by_id
   end
 
+  def destroy
+    @treatment_record = TreatmentRecord.find(params[:id])
+    @treatment_record.destroy
+    @customer = find_customer_by_id
+    redirect_to treatment_records_path(customer_id: @customer.id), success: 'カルテを削除しました'
+  end
+
   private
   def treatment_record_params
     params.require(:treatment_record).permit(

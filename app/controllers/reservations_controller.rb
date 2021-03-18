@@ -22,7 +22,6 @@ class ReservationsController < ApplicationController
   end
 
   def index
-    @reservations = Reservation.all.search(params[:search])
     @reservations = Reservation.all
   end
 
@@ -35,6 +34,12 @@ class ReservationsController < ApplicationController
     @reservation = find_reservation_by_id
     @reservation.update(reservation_params)
     redirect_to reservations_path, success: '予約を変更しました'
+  end
+
+  def destroy
+    @reservation = find_reservation_by_id
+    @reservation.destroy
+    redirect_to reservations_path, success: '予約を取り消しました'
   end
 
   private
