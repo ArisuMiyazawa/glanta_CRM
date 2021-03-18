@@ -4,6 +4,7 @@
       <div class="col-md-offset-4 col-md-4 treatment_record-container">
         <h1 class="text-center text-gray title">詳細ページ</h1>
         <%= link_to "編集", edit_customer_path %>
+        <%= link_to "削除", customer_path(id: @customer.id), method: :delete, data:{confirm:"本当にお客様情報を削除しますか？"} %>
         <%= link_to "カルテ一覧", treatment_records_path(customer_id: @customer.id) %>
         <%= link_to "次回予約", new_reservation_path(customer_id: @customer.id) %>
          <div class="text-gray side-line under-line">

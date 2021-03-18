@@ -13,7 +13,7 @@
               <% reservations.each do |reservation| %>
                 <div>
                   <%= reservation.reservation_time.hour %>:<%= reservation.reservation_time.min %>
-                  <%= link_to reservation.customer.name_kana, reservation_path(id: reservation.id) %>
+                  <%= link_to reservation.customer.name_kana, reservation_path(id: reservation.id) %>様
                 </div>
               <% end %>
             <% end %>

@@ -7,9 +7,9 @@ class Customer < ApplicationRecord
   validates :email, format: {with: VALID_EMAIL_REGEX}, presence: true, unless: :guest_account?
   validates_acceptance_of :consent, allow_nil: false, unless: :guest_account?
 
-  has_many :reservations
+  has_many :reservations, dependent: :destroy
   accepts_nested_attributes_for :reservations
-  has_many :treatment_records
+  has_many :treatment_records, dependent: :destroy
 
   attr_accessor :guest_account
   alias_method :guest_account?, :guest_account

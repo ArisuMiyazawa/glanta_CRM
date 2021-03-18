@@ -52,6 +52,13 @@ class CustomersController < ApplicationController
     @customer = find_customer_by_id
   end
 
+  def destroy
+    @customer = Customer.find(params[:id])
+    @customer.destroy
+    redirect_to customers_path(id: @customer.id), success: 'お客様情報を削除しました'
+  end
+
+
   private
   def customer_input_params
     params.require(:customer).permit(
