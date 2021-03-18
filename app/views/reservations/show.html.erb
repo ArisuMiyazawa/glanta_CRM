@@ -2,15 +2,15 @@
   <div class="container">
     <div class="row">
       <div class="col-md-offset-4 col-md-4 customers-new-container">
-        <h1 class="text-center text-gray">予約確認</h1>
-         <div class="text-center text-gray">
+        <h1 class="text-center text-gray title">予約確認</h1>
+         <div class="text-center text-gray subtitle">
          <%= @customer.name_kana %>様
          </div>
          <div class="text-center text-gray">
          <%= @reservation.reservation_date %>
          </div>
          <div class="text-center text-gray">
-         <%= @reservation.reservation_time %>
+         <%= @reservation.reservation_time.strftime('%H:%M') %>
          </div>
          <div class="text-center text-gray">
          <%= @reservation.note %>

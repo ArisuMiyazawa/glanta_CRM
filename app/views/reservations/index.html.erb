@@ -1,53 +1,22 @@
-<div class="reservations-index-wrapper">
+<div class="reservations-wrapper">
   <div class="container">
     <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <div class="reservations-index-single">
-          <h2 class="text-gray">予約一覧</h2>
-　　　　　　<h3 class="text-gray">名前検索</h3>
-            <div class="search-form">
-              <%=form_tag(reservations_path, method: :get) do %>
-                <%= text_field_tag :search %>
-                <%= submit_tag 'Search', name: nil %>
+      <div class="reservations-new-container">
+        <div class="reservations-single">
+          <h1 class="text-gray text-center title">予約一覧</h1>
+            <%= month_calendar(attribute: :reservation_date, events: @reservations) do |reservation_date, reservations| %>
+              <% if reservation_date >= Date.today %>
+               <%=link_to reservation_date, customers_path %>
+              <% else %>
+               <%= reservation_date %>
               <% end %>
-            </div>
-
-            <table>
-              <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>reservation time</th>
-                  <th colspan="3"></th>
-                </tr>
-              </thead>
-
-              <tbody>
-                <% @reservations.each do |reservation| %>
-                  <tr>
-                   <td><%= reservation.customer.name_kana %></td>
-                   <td><%= reservation.start_time %></td>
-                   <td><%= link_to 'Show', reservation %></td>
-                   <td><%= link_to 'Edit', edit_reservation_path(reservation) %></td>
-                   <td><%= link_to 'Destroy', reservation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-                 </tr>
-                <% end %>
-              </tbody>
-            </table>
-
-            <br>
-            <%= month_calendar events: @reservations do |reservation_date, reservations| %>
-              <%= reservation_date %>
-
               <% reservations.each do |reservation| %>
                 <div>
-                  <%= reservation.start_time.hour %>:<%= reservation.start_time.min %>
-                  <%= reservation.customer.name_kana %>
+                  <%= reservation.reservation_time.hour %>:<%= reservation.reservation_time.min %>
+                  <%= link_to reservation.customer.name_kana, reservation_path(id: reservation.id) %>
                 </div>
               <% end %>
             <% end %>
-
-            <%= link_to 'New Reservation', new_reservation_path %>
-
         </div>
       </div>
     </div>
