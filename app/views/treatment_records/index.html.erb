@@ -3,14 +3,14 @@
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
         <div class="reservations-index-single">
-          <h2 class="text-center text-gray">カルテ一覧</h2>
-          <h3 class="text-center text-gray"><%= @customer.name_kana %>様</h3>
+          <h1 class="text-center text-gray title">カルテ一覧</h1>
+          <h2 class="text-center text-gray subtitle"><%= @customer.name_kana %>様</h2>
 
-          <% @customer.reservations.each do |reservation| %>
+          <% @reservations.each do |reservation| %>
             <% if !reservation.treatment_record.nil? %>
-             <p class="text-gray"><%= link_to reservation.reservation_date, treatment_record_path(id: reservation.treatment_record.id) %></p>
+             <p class="text-gray text-center"><%= link_to reservation.reservation_date, treatment_record_path(id: reservation.treatment_record.id) %></p>
             <% else %>
-             <p class="text-gray"><%= reservation.reservation_date %></p>
+             <p class="text-gray text-center"><%= link_to reservation.reservation_date, treatment_record_empty_page_path(customer_id: @customer.id, reservation_id: reservation.id) %></p>
             <% end %>
           <% end %>
 

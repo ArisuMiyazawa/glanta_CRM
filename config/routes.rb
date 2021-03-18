@@ -2,7 +2,6 @@ Rails.application.routes.draw do
 
   get 'users/new'
   get 'sessions/new'
-  get 'treatment_records/new'
   root 'pages#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :customers do
@@ -19,4 +18,5 @@ Rails.application.routes.draw do
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
   get    'customer/consent_form', to: 'customers#consent_form'
+  get    'treatment_record/empty_page', to: 'treatment_records#empty_page'
 end

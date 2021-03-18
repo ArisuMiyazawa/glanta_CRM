@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-offset-4 col-md-4 guests-new-container">
-        <h1 class="text-center text-gray">仮登録フォーム<h1>
+        <h1 class="text-center text-gray title">仮登録フォーム<h1>
         <%= form_for @customer, url: { action: 'guest_create' } do |f| %>
           <div class="form-group">
           <%= f.label :name_kana, "ヨミガナ", class: 'text-gray' %>

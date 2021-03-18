@@ -33,8 +33,13 @@ class TreatmentRecordsController < ApplicationController
 
   def index
     @customer = find_customer_by_id
+    @reservations = Reservation.where(customer_id: @customer.id).order(reservation_date: :desc)
   end
 
+  def empty_page
+    @customer = find_customer_by_id
+    @reservation = find_reservation_by_id
+  end
 
   private
   def treatment_record_params

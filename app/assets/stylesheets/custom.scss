@@ -1,19 +1,24 @@
-h1, h2{
+h1 {
   margin-top: 100px;
   font-weight: 100;
 }
 
-h3 {
-  font-weight: 100;
+h2 {
+  font-weight: 80;
+  margin-bottom: 200px;
+  margin-top:10px;
 }
+
+//a {
+  //color: #337ab7;
+  //padding: 10px 5px;
+  //font-size: 18px;
+//}
+
 
 .comment {
   font-weight: 150;
   color: #4e6eed;
-}
-
-.text-white {
-  color: #fff;
 }
 
 .text-gray {
@@ -115,6 +120,16 @@ h3 {
   }
 }
 
+.title {
+  font-size: 40px;
+  margin-bottom: 40px;
+}
+
+.subtitle {
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+
 .customers-new-wrapper {
   width: 100vw;
   height: 250vh;
@@ -129,14 +144,34 @@ h3 {
 
    .form-group {
     margin-bottom: 20px;
-    }
   }
+ }
 }
 
-.title {
-  font-size: 40px;
-  margin-bottom: 50px;
+.treatment_record-wrapper {
+  width: 100vw;
+  height: 150vh;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #fafdff;
+
+ .treatment_record-container {
+  padding-top: 10px;
+
+   .form-group {
+    margin-bottom: 20px;
+  }
+ }
 }
+
+
+p {
+  font-size: 20px;
+}
+
+
 
 .side-line {
   padding: 0.25em 0.5em;
@@ -178,8 +213,7 @@ h3 {
 
 .guests-new-wrapper {
   width: 100vw;
-  height: 200vh;
-  background-image: image-url('#');
+  height: 150vh;
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -195,9 +229,9 @@ h3 {
   }
 }
 
-.reservations-index-wrapper {
+.reservations-wrapper {
   width: 100vw;
-  height: 200vh;
+  height: 150vh;
   background-image: image-url('#');
   background-position: center center;
   background-repeat: no-repeat;
@@ -205,7 +239,7 @@ h3 {
   background-size: cover;
   background-color: #fafdff;
 
-  .reservations-index-container {
+  .reservations-container {
     padding-top: 220px;
 
     .form-group {

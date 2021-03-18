@@ -2,9 +2,8 @@
   <div class="container">
     <div class="row">
       <div class="col-md-offset-4 col-md-4 guests-new-container">
-        <h1 class="text-center text-gray">次回予約フォーム<h1>
-          
-          <h2 class="text-center text-gray"><%= @customer.name_kana %>様</h2>
+        <h1 class="text-center text-gray title">次回予約フォーム<h1>
+          <h2 class="text-center text-gray subtitle"><%= @customer.name_kana %>様</h2>
           <%= form_for @reservation do |f| %>
            <div class="form-group">
              <%= f.label :reservation_date, "予約日", class: 'text-gray' %>

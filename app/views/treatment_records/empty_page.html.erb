@@ -1,0 +1,13 @@
+<div class="treatment_record-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-offset-4 col-md-4 treatment_record-container">
+        <h1 class="text-center text-gray title">カルテ</h1>
+        <h2 class="text-center text-gray subtitle"><%= @customer.name_kana %>様</h2>
+        <h3 class="text-center text-gray"><%= @reservation.reservation_date %>の登録カルテはありません。</h3>
+          <%= link_to "カルテ登録", new_treatment_record_path(customer_id: @customer.id, reservation_id: @reservation.id) %>
+          <%= link_to "カルテ一覧", treatment_records_path(customer_id: @customer.id) %>
+      </div>
+    </div>
+  </div>
+</div>
