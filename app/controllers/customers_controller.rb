@@ -1,19 +1,20 @@
 class CustomersController < ApplicationController
+
   def guest
     @customer = Customer.new
-    @customer.reservations.build
+    @reservations = @customer.reservations.build
   end
 
   def guest_create
-    @customer = Customer.new(guest_input_paramas)
+    @customer = Customer.new(guest_input_params)
     @customer.guest_account = true
+
     if @customer.save
-      redirect_to reservation_path(id: @customer.id), success: '登録が完了しました'
+      redirect_to reservation_path(id: @customer.latest_reservations_id), success: '登録が完了しました'
     else
       flash.now[:danger] = "ご記入内容に誤りがあります"
       render :guest
     end
-
   end
 
   def new
@@ -32,6 +33,7 @@ class CustomersController < ApplicationController
   end
 
   def consent_form
+    render layout: false
   end
 
   def edit
@@ -45,7 +47,11 @@ class CustomersController < ApplicationController
   end
 
   def index
-    @customer = Customer.order :name_kana
+    @customer = Customer.paginate(page: params[:page], per_page: 20).order(name_kana: :asc).search(params[:search])
+  end
+
+  def desc_index
+    @customer = Customer.paginate(page: params[:page], per_page: 20).order(name_kana: :desc).search(params[:search])
   end
 
   def show
@@ -80,7 +86,7 @@ class CustomersController < ApplicationController
     )
   end
 
-  def guest_input_paramas
+  def guest_input_params
     params.require(:customer).permit(
       :name_kana,
       :phone_number,

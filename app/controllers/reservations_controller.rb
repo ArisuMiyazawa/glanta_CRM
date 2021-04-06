@@ -1,18 +1,22 @@
 class ReservationsController < ApplicationController
   def new
-    @reservation = Reservation.new
+    @customer = find_customer_by_id
+    @reservations = Reservation.all
+  end
+
+  def new_timeselect
+    @reservation = Reservation.new(reservation_date: params[:reservation_date])
     @customer = find_customer_by_id
   end
 
   def create
     @reservation = Reservation.new(reservation_params)
-
     if @reservation.save
       redirect_to reservation_path(id: @reservation.id), success: '登録が完了しました'
     else
       flash.now[:danger] = "登録内容に誤りがあります"
-      @customer = find_customer_by_id
-      render :new
+      @customer = Customer.find(params[:reservation][:customer_id])
+      render :new_timeselect
     end
   end
 
@@ -26,14 +30,28 @@ class ReservationsController < ApplicationController
   end
 
   def edit
+    @reservations = Reservation.all
     @reservation = find_reservation_by_id
     @customer = find_customer_by_id
   end
 
+  def edit_timeselect
+    @customer = find_customer_by_id
+    @reservation = find_reservation_by_id
+    @reservation_date = params[:reservation_date]
+  end
+
   def update
     @reservation = find_reservation_by_id
-    @reservation.update(reservation_params)
-    redirect_to reservations_path, success: '予約を変更しました'
+    if @reservation.update(reservation_params)
+       redirect_to reservations_path, success: '予約を変更しました'
+    else
+      flash.now[:danger] = "前後30分以内に他のご予約がある時間は選択できません"
+      @customer = Customer.find(params[:reservation][:customer_id])
+      @reservation_date = params[:reservation_date]
+      render :edit_timeselect
+    end
+
   end
 
   def destroy
@@ -54,4 +72,5 @@ class ReservationsController < ApplicationController
   def find_customer_by_id
     Customer.find(params[:customer_id])
   end
+
 end

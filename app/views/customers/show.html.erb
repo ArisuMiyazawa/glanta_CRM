@@ -1,7 +1,7 @@
 <div class="treatment_record-wrapper">
   <div class="container">
     <div class="row">
-      <div class="col-md-offset-4 col-md-4 treatment_record-container">
+      <div class="col-md-offset-1 col-md-10 treatment_record-container">
         <h1 class="text-center text-gray title">詳細ページ</h1>
         <%= link_to "編集", edit_customer_path %>
         <%= link_to "削除", customer_path(id: @customer.id), method: :delete, data:{confirm:"本当にお客様情報を削除しますか？"} %>

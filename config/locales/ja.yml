@@ -1,0 +1,12 @@
+ja:
+  activerecord:
+    errors:
+      messages:
+        
+      #models:
+        #customer:
+          #attributes:
+            #name:
+              #blank: "空になっています。入力してください。"
+            #age:
+              #blank: "空になっています。入力してください。"

@@ -1,0 +1,26 @@
+<div class="guests-new-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-offset-4 col-md-4 guests-new-container">
+        <h1 class="text-center text-gray title">次回予約フォーム<h1>
+          <h2 class="text-center text-gray subtitle"><%= @customer.name_kana %>様</h2>
+
+          <h3 class="text-center text-gray"><%= @reservation.reservation_date %></h3>
+
+          <%= form_for @reservation do |f| %>
+           <div class="form-group">
+             <%= f.label :reservation_time, "予約時間", class: 'text-gray' %>
+             <%= f.time_field :reservation_time, class: 'form-control' %>
+           </div>
+           <div>
+             <%= f.label :note, "メモ", class: 'text-gray' %>
+             <%= f.text_field :note, class: 'form-control' %>
+           </div>
+            <%= f.hidden_field :reservation_date, value: @reservation.reservation_date %>
+            <%= f.hidden_field :customer_id, value: @customer.id %>
+           　<%= f.submit "登録", class: 'btn-block btn-gray' %>
+          　<% end %>
+      </div>
+    </div>
+  </div>
+</div>
