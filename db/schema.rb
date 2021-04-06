@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_05_070402) do
+ActiveRecord::Schema.define(version: 2021_04_01_102144) do
 
   create_table "customers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 2021_03_05_070402) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_digest"
+    t.boolean "admin", default: false, null: false
   end
 
   add_foreign_key "reservations", "customers"

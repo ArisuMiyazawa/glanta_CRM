@@ -11,7 +11,7 @@
             <%= submit_tag 'Search' %>
             <% end %>
 
-            <%= link_to "降順に並び替える", desc_index_customers_path %>
+            <%= link_to "昇順に並び替える", customers_path %>
             <%= will_paginate @customer %>
 
             <% @customer.each do |customer| %>
@@ -20,6 +20,7 @@
 
             <%= will_paginate @customer%>
             <%= link_to "新規登録", new_customer_path %>
+
         </div>
       </div>
     </div>

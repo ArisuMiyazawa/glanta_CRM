@@ -5,11 +5,7 @@
         <div class="reservations-single">
           <h1 class="text-gray text-center title">予約一覧</h1>
             <%= month_calendar(attribute: :reservation_date, events: @reservations) do |reservation_date, reservations| %>
-              <% if reservation_date >= Date.today %>
-               <%=link_to reservation_date, customers_path %>
-              <% else %>
                <%= reservation_date %>
-              <% end %>
               <% reservations.each do |reservation| %>
                 <div>
                   <%= reservation.reservation_time.hour %>:<%= reservation.reservation_time.min %>

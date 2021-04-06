@@ -1,26 +1,22 @@
-<div class="guests-new-wrapper">
+<div class="reservations-index-wrapper">
   <div class="container">
     <div class="row">
-      <div class="col-md-offset-4 col-md-4 guests-new-container">
+      <div class="reservations-index-container">
         <h1 class="text-center text-gray title">次回予約フォーム<h1>
           <h2 class="text-center text-gray subtitle"><%= @customer.name_kana %>様</h2>
-          <%= form_for @reservation do |f| %>
-           <div class="form-group">
-             <%= f.label :reservation_date, "予約日", class: 'text-gray' %>
-             <%= f.date_field :reservation_date, class: 'form-control' %>
-           </div>
-           <div class="form-group">
-             <%= f.label :reservation_time, "予約時間", class: 'text-gray' %>
-             <%= f.time_field :reservation_time, class: 'form-control' %>
-           </div>
-           <div>
-             <%= f.label :note, "メモ", class: 'text-gray' %>
-             <%= f.text_field :note, class: 'form-control' %>
-           </div>
-            <%= f.hidden_field :customer_id, value: @customer.id %>
-           　<%= f.submit "登録", class: 'btn-block btn-gray' %>
-          　 <% end %>
-
+          <%= month_calendar(attribute: :reservation_date, events: @reservations) do |reservation_date, reservations| %>
+            <% if reservation_date >= Date.today %>
+             <%=link_to reservation_date, reservations_new_timeselect_path(reservation_date: reservation_date) %>
+            <% else %>
+             <%= reservation_date %>
+            <% end %>
+            <% reservations.each do |reservation| %>
+              <div>
+                <%= reservation.reservation_time.hour %>:<%= reservation.reservation_time.min %>
+                <%= reservation.customer.name_kana %>様
+              </div>
+            <% end %>
+          <% end %>
       </div>
     </div>
   </div>

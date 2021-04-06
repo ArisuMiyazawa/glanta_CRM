@@ -9,53 +9,45 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body data-controller="<%= controller_name %>">
     <% flash.each do |key,value| %>
       <div class="alert alert-<%= key %>" role="alert"><%= value %></div>
     <% end %>
 
-    <nav class="navbar navbar-default navbar-fixed-top navbar-transparent">
-      <div class="container">
-        <%= link_to root_path do %>
-          <span><%= image_tag "icons/home.png", class: "navbar-brand" %></span>
-        <% end %>
-        <ul class="nav navbar-nav navbar-right">
-          <% if logged_in? %>
-            <li>
-              <%= link_to customers_path do %>
-                <%= image_tag "icons/customer_index.png" %>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to reservations_path do %>
-                <%= image_tag "icons/reservation_index.png" %>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to guest_customers_path do %>
-                <%= image_tag "icons/guest.png" %>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to logout_path, method: :delete do %>
-                <%= image_tag "icons/logout.png" %>
-              <% end %>
-            </li>
-          <% else %>
-            <li>
-              <%= link_to new_user_path do %>
-                <%= image_tag "icons/signup.png" %>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to login_path do %>
-                <%= image_tag "icons/login.png" %>
-              <% end %>
-            </li>
+    <% if logged_in? %>
+      <nav class="navbar navbar-default navbar-fixed-top navbar-transparent">
+       <div class="container">
+          <%= link_to reservations_path do %>
+            <%= image_tag "icons/home.png", class: "navbar-brand" %>
           <% end %>
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <%= link_to customers_path do %>
+              <%= image_tag "icons/customer_index.png" %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to guest_customers_path do %>
+              <%= image_tag "icons/guest.png" %>
+            <% end %>
+          </li>
+          <li>
+            <% if current_user.admin? %>
+            <%= link_to users_path do %>
+              <%= image_tag "icons/admin_user.png" %>
+            <% end %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to logout_path, method: :delete do %>
+              <%= image_tag "icons/logout.png" %>
+            <% end %>
+          </li>
+          <li class ="login_user">ログインユーザー：<%= current_user.name %></li>
         </ul>
-      </div>
-    </nav>
+       </div>
+      </nav>
+    <% end %>
 
     <%= yield %>
 

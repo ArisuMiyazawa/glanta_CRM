@@ -74,3 +74,8 @@ gem 'jquery-rails'
 gem 'bcrypt'
 
 gem 'simple_calendar', '~> 2.0'
+
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
+
+gem 'rails-i18n'
