@@ -14,7 +14,6 @@ class ReservationsController < ApplicationController
     if @reservation.save
       redirect_to reservation_path(id: @reservation.id), success: '登録が完了しました'
     else
-      flash.now[:danger] = "登録内容に誤りがあります"
       @customer = Customer.find(params[:reservation][:customer_id])
       render :new_timeselect
     end
@@ -46,7 +45,6 @@ class ReservationsController < ApplicationController
     if @reservation.update(reservation_params)
        redirect_to reservations_path, success: '予約を変更しました'
     else
-      flash.now[:danger] = "前後30分以内に他のご予約がある時間は選択できません"
       @customer = Customer.find(params[:reservation][:customer_id])
       @reservation_date = params[:reservation_date]
       render :edit_timeselect

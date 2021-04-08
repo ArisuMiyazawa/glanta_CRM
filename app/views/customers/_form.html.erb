@@ -1,12 +1,130 @@
-<%= form_with(model: customer, local: true) do |form| %>
-  <% if customer.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(customer.errors.count, "error") %> prohibited this product from being saved:</h2>
+<div class="customers-new-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-offset-2 col-md-8 customers-new-container">
+        <h1 class="text-center text-gray title">ご登録フォーム</h1>
+        <label class= "explanation">※漢字・ひらがな・カタカナは全角、記号・英数字は半角でご入力ください</label>
 
-      <ul>
-        <% customer.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+          <% if @customer.errors.any? %>
+            <div class="text-red">
+              <h2>記入内容に<%= @customer.errors.count %>件の誤りがあります</h2>
+            </div>
+          <% end %>
+        
+        <%= form_for @customer do |f| %>
+          <div class="form-group">
+            <%= f.label :name, "お名前", class: 'text-gray' %><label class= "text-red">(必須)</label><label class= "explanation">※姓名間スペースなし</label>
+            <%= f.text_field :name, class: 'form-control' %>
+            <% if @customer.errors.include?(:name) %>
+              <% @customer.errors.full_messages_for(:name).each do |full_message| %>
+              <p class="text-red"><%= full_message %></p>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="form-group">
+            <%= f.label :name_kana, "ヨミガナ", class: 'text-gray' %><label class= "text-red">(必須)</label><label class= "explanation">※姓名間スペースなし</label>
+            <%= f.text_field :name_kana, class: 'form-control' %>
+              <% if @customer.errors.include?(:name_kana) %>
+                <% @customer.errors.full_messages_for(:name_kana).each do |full_message| %>
+                <p class="text-red"><%= full_message %></p>
+                <% end %>
+              <% end %>
+          </div>
+          <div class="form-group">
+            <%= f.label :job, "ご職業", class: 'text-gray' %><label class= "text-red">(必須)</label>
+            <%= f.text_field :job, class: 'form-control' %>
+            <% if @customer.errors.include?(:job) %>
+              <% @customer.errors.full_messages_for(:job).each do |full_message| %>
+              <p class="text-red"><%= full_message %></p>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="form-group">
+            <%= f.label :postcode, "郵便番号", class: 'text-gray' %><label class= "text-red">(必須)</label><label class= "explanation">※ハイフンなし</label>
+            <%= f.text_field :postcode, class: 'form-control' %>
+            <% if @customer.errors.include?(:postcode) %>
+              <% @customer.errors.full_messages_for(:postcode).each do |full_message| %>
+              <p class="text-red"><%= full_message %></p>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="form-group">
+            <%= f.label :street_address, "ご住所", class: 'text-gray' %><label class= "text-red">(必須)</label>
+            <%= f.text_field :street_address, class: 'form-control' %>
+            <% if @customer.errors.include?(:street_address) %>
+              <% @customer.errors.full_messages_for(:street_address).each do |full_message| %>
+              <p class="text-red"><%= full_message %></p>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="form-group">
+            <%= f.label :phone_number, "お電話番号", class: 'text-gray' %><label class= "text-red">(必須)</label><label class= "explanation">※ハイフンなし</label>
+            <%= f.text_field :phone_number, class: 'form-control' %>
+            <% if @customer.errors.include?(:phone_number) %>
+              <% @customer.errors.full_messages_for(:phone_number).each do |full_message| %>
+              <p class="text-red"><%= full_message %></p>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="form-group">
+            <%= f.label :email, "メールアドレス", class: 'text-gray' %><label class= "text-red">(必須)</label>
+            <%= f.text_field :email, class: 'form-control' %>
+            <% if @customer.errors.include?(:email) %>
+              <% @customer.errors.full_messages_for(:email).each do |full_message| %>
+              <p class="text-red"><%= full_message %></p>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="form-group">
+            <%= f.label :introducer_name, "ご紹介者様", class: 'text-gray' %><label class= "text-red">(必須)</label><label class= "explanation">※カタカナ、姓名間スペースなし</label>
+            <%= f.text_field :introducer_name, class: 'form-control' %>
+            <% if @customer.errors.include?(:introducer_name) %>
+              <% @customer.errors.full_messages_for(:introducer_name).each do |full_message| %>
+              <p class="text-red"><%= full_message %></p>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="form-group">
+            <%= f.label :birthday, "生年月日", class: 'text-gray' %><label class= "text-blue">(任意)</label>
+            <%= f.date_select :birthday, autofocus: true, prompt:"--", use_month_numbers: true, start_year: Time.now.year, end_year: 1900, date_separator: '/', class: 'form-control' %>
+            <% if @customer.errors.include?(:birthday) %>
+              <% @customer.errors.full_messages_for(:birthday).each do |full_message| %>
+              <p class="text-red"><%= full_message %></p>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="form-group">
+            <%= f.label :line_id, "line ID", class: 'text-gray' %><label class= "text-blue">(任意)</label>
+            <%= f.text_field :line_id, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= f.label :allergy, "アレルギー", class: 'text-gray' %><label class= "text-blue">(任意)</label>
+            <%= f.text_field :allergy, class: 'form-control' %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :request, "爪のお悩み・ご要望", class: 'text-gray' %><label class= "text-blue">(任意)</label>
+            <%= f.text_field :request, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <p class="text-gray">施術を安心して受けて頂く為に、利用規約を必ずご確認下さい。</P>
+            <%= f.check_box :consent , {}, "true", "false" %>
+            <label class="text-gray">
+            <%= link_to "利用規約", customer_consent_form_path, target: :_blank %>に同意する</label>
+            <% if @customer.errors.include?(:consent) %>
+              <% @customer.errors.full_messages_for(:consent).each do |full_message| %>
+              <p class="text-red"><%= full_message %></p>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="form-group">
+            <%= f.label :nail_technician_note, "ネイリスト記入欄", class: 'text-gray' %>
+            <%= f.text_field :nail_technician_note, class: 'form-control' %>
+          </div>
+
+          <%= f.submit "登録", class: 'btn-block btn-gray' %>
         <% end %>
-      </ul>
+      </div>
     </div>
-  <% end %>
+  </div>
+</div>
