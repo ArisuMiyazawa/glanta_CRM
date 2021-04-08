@@ -6,7 +6,7 @@
           <h2 class="text-center text-gray subtitle"><%= @customer.name_kana %>様</h2>
           <%= month_calendar(attribute: :reservation_date, events: @reservations) do |reservation_date, reservations| %>
             <% if reservation_date >= Date.today %>
-             <%=link_to reservation_date, reservations_new_timeselect_path(reservation_date: reservation_date) %>
+             <%=link_to reservation_date, reservations_new_timeselect_path(reservation_date: reservation_date, customer_id: @customer.id) %>
             <% else %>
              <%= reservation_date %>
             <% end %>

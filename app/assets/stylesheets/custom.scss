@@ -9,12 +9,6 @@ h2 {
   margin-top:10px;
 }
 
-//a {
-  //color: #337ab7;
-  //padding: 10px 5px;
-  //font-size: 18px;
-//}
-
 
 .comment {
   font-weight: 150;
@@ -112,13 +106,12 @@ h2 {
 
 .users-new-wrapper {
   width: 100vw;
-  height: 100vh;
+  height: 150vh;
   background-color: #fafdff;
 
   .users-new-container {
     padding-top: 220px;
-    //padding-bottom: 220px;
-    //margin-bottom: 100px;
+    padding-bottom: 220px;
 
     .form-group {
       margin-bottom: 20px;
@@ -223,8 +216,9 @@ p {
   background-size: cover;
   background-color: #fafdff;
 
-  .guest-new-container {
+  .guests-new-container {
     padding-top: 220px;
+    padding-bottom: 220px;
 
     .form-group {
       margin-bottom: 20px;

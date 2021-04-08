@@ -4,28 +4,61 @@
       <div class="col-md-offset-2 col-md-8 guests-new-container">
         <h1 class="text-center text-gray title">仮登録フォーム<h1>
         <label class= "explanation">※漢字・ひらがな・カタカナは全角、記号・英数字は半角で入力</label>
+
+          <% if @customer.errors.any? %>
+            <div class="text-red">
+              <h2>記入内容に<%= @customer.errors.count %>件の誤りがあります</h2>
+            </div>
+          <% end %>
+
         <label class= "explanation">※全項目入力必須</label>
         <%= form_for @customer, url: { action: 'guest_create' } do |f| %>
           <div class="form-group">
           <%= f.label :name_kana, "ヨミガナ", class: 'text-gray' %><label class= "explanation">※姓名間スペースなし</label>
           <%= f.text_field :name_kana, class: 'form-control' %>
+          <% if @customer.errors.include?(:name_kana) %>
+            <% @customer.errors.full_messages_for(:name_kana).each do |full_message| %>
+            <p class="text-red"><%= full_message %></p>
+            <% end %>
+          <% end %>
           </div>
           <div class="form-group">
             <%= f.label :phone_number, "電話番号", class: 'text-gray' %><label class= "explanation">※ハイフンなし</label>
             <%= f.text_field :phone_number, class: 'form-control' %>
+            <% if @customer.errors.include?(:phone_number) %>
+              <% @customer.errors.full_messages_for(:phone_number).each do |full_message| %>
+              <p class="text-red"><%= full_message %></p>
+              <% end %>
+            <% end %>
           </div>
           <div class="form-group">
             <%= f.label :introducer_name, "ご紹介者様", class: 'text-gray' %><label class= "explanation">※カタカナ、姓名間スペースなし</label>
             <%= f.text_field :introducer_name, class: 'form-control' %>
+            <% if @customer.errors.include?(:introducer_name) %>
+              <% @customer.errors.full_messages_for(:introducer_name).each do |full_message| %>
+              <p class="text-red"><%= full_message %></p>
+              <% end %>
+            <% end %>
           </div>
           <%= f.fields_for :reservations do |i| %>
             <div class="form-group">
               <%= i.label :reservation_date, "予約日", class: 'text-gray' %>
               <%= i.date_field :reservation_date, class: 'form-control' %>
+            
+              <% if @customer.errors.include?(:"reservations.reservation_date") %>
+                <% @customer.errors.full_messages_for(:"reservations.reservation_date").each do |full_message| %>
+                <p class="text-red"><%= full_message %></p>
+                <% end %>
+              <% end %>
             </div>
             <div class="form-group">
               <%= i.label :reservation_time, "予約時間", class: 'text-gray' %>
               <%= i.time_field :reservation_time, class: 'form-control' %>
+              <% if @customer.errors.include?(:"reservations.reservation_time") %>
+                <% @customer.errors.full_messages_for(:"reservations.reservation_time").each do |full_message| %>
+                <p class="text-red"><%= full_message %></p>
+                <% end %>
+              <% end %>
             </div>
             <div class="form-group">
               <%= i.label :note, "メモ", class: 'text-gray' %>

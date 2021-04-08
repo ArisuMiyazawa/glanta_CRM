@@ -1,12 +1,77 @@
 ja:
   activerecord:
     errors:
-      messages:
-        
-      #models:
-        #customer:
-          #attributes:
-            #name:
-              #blank: "空になっています。入力してください。"
-            #age:
-              #blank: "空になっています。入力してください。"
+      models:
+        customer:
+          attributes:
+            name:
+              blank: "を入力してください"
+              invalid_name_job: "は漢字・ひらがな・カタカナを全角、記号・英字を半角で入力してください"
+            name_kana:
+              blank: "を入力してください"
+              invalid_kana: "はカタカナで入力してください"
+            job:
+              blank: "を入力してください"
+              invalid_name_job: "は漢字・ひらがな・カタカナを全角、記号・英字を半角で入力してください"
+            postcode:
+              blank: "を入力してください"
+              invalid_postcode: "は7桁の半角数字で入力してください"
+            street_address:
+              blank: "を入力してください"
+              invalid_street_address: "は漢字・ひらがな・カタカナを全角、記号・英数字を半角で入力してください"
+            phone_number:
+              blank: "を入力してください"
+              invalid_phone_number: "は10-11桁の半角数字で入力してください"
+            email:
+              blank: "を入力してください"
+              invalid_email: "は正しい形式で入力してください"
+              taken: "は同じものが既に登録されています"
+            introducer_name:
+              blank: "を入力してください"
+              invalid_kana: "はカタカナで入力してください"
+            consent:
+              blank: "を受諾してください"
+
+        user:
+          attributes:
+            password:
+              invalid_password: "は半角英数字を組み合わせてください"
+            email:
+               invalid_email: "は正しい形式で入力してください"
+               taken: "は同じものが既に登録されています"
+
+
+    models:
+      customer:
+    attributes:
+      customer:
+        name: "お名前"
+        name_kana: "ヨミガナ"
+        job: "ご職業"
+        postcode: "郵便番号"
+        street_address: "ご住所"
+        phone_number: "お電話番号"
+        email: "メールアドレス"
+        introducer_name: "ご紹介者様"
+        consent: "利用規約"
+        reservation_date: "予約日"
+        reservation_time: "予約時間"
+
+      reservation:
+       attributes:
+      reservation:
+        reservation_time: "予約時間"
+
+      reservations:
+       attributes:
+      reservations:
+        reservation_time: "予約時間"
+        reservation_date: "予約日時"
+
+      user:
+        attributes:
+      user:
+        name: "名前"
+        email: "メールアドレス"
+        password: "パスワード"
+        password_confirmation: "パスワード(確認用)"

@@ -42,8 +42,12 @@ class CustomersController < ApplicationController
 
   def update
     @customer = find_customer_by_id
-    @customer.update(customer_input_params)
-    redirect_to customer_path(id: @customer.id), success: '登録内容を変更しました'
+    if @customer.update(customer_input_params)
+      redirect_to customer_path(id: @customer.id), success: '登録内容を変更しました'
+    else
+      flash.now[:danger] = "ご記入内容に誤りがあります"
+      render :new
+    end
   end
 
   def index
