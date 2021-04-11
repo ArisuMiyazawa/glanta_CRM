@@ -49,6 +49,7 @@ test:
 #
 production:
   <<: *default
-  database: glanta_CRM_production
-  username: glanta_CRM
-  password: <%= ENV['GLANTA_CRM_DATABASE_PASSWORD'] %>
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  database: GLANTA_CRM_DATABASE
