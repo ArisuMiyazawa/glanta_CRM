@@ -8,7 +8,6 @@ class Customer < ApplicationRecord
   VALID_STREET_ADDRESS_REGEX = /\A[a-zA-Z0-9]+\z|\A[ぁ-んァ-ン一-龥]/
 
   before_validation :strip_email
-  before_validation :phone_number
   validates :name_kana, format: {with: VALID_KANA_REGEX, message: :invalid_kana}, presence: true
   validates :phone_number, format: {with: VALID_PHONE_NUMBER_REGEX, message: :invalid_phone_number}, presence: true
   validates :introducer_name, format: {with: VALID_KANA_REGEX, message: :invalid_kana}, presence: true
@@ -42,10 +41,6 @@ class Customer < ApplicationRecord
 
   def strip_email
     self.email = email.to_s.strip
-  end
-
-  def strip_phone_number
-    self.phone_number = phone_number.to_s.strip
   end
 
 end
