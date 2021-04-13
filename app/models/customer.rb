@@ -7,6 +7,7 @@ class Customer < ApplicationRecord
   VALID_POSTCODE_REGEX = /\A\d{7}\z/
   VALID_STREET_ADDRESS_REGEX = /\A[a-zA-Z0-9]+\z|\A[ぁ-んァ-ン一-龥]/
 
+  before_validation :strip_email
   validates :name_kana, format: {with: VALID_KANA_REGEX, message: :invalid_kana}, presence: true
   validates :phone_number, format: {with: VALID_PHONE_NUMBER_REGEX, message: :invalid_phone_number}, presence: true
   validates :introducer_name, format: {with: VALID_KANA_REGEX, message: :invalid_kana}, presence: true
@@ -17,7 +18,7 @@ class Customer < ApplicationRecord
   validates :email, format: {with: VALID_EMAIL_REGEX, message: :invalid_email}, uniqueness: true, presence: true, unless: :guest_account?
   validates_acceptance_of :consent, allow_nil: false, unless: :guest_account?
 
-  
+
   has_many :reservations, dependent: :destroy
   accepts_nested_attributes_for :reservations
 
@@ -37,5 +38,9 @@ class Customer < ApplicationRecord
      @customer = Customer.all
    end
  end
+
+  def strip_email
+    self.email = email.to_s.strip
+  end
 
 end
