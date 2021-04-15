@@ -13,7 +13,7 @@ class Customer < ApplicationRecord
   validates :phone_number, format: {with: VALID_PHONE_NUMBER_REGEX, message: :invalid_phone_number}, presence: true
   #validates :introducer_name, format: {with: VALID_KANA_REGEX, message: :invalid_kana}, presence: true
   validates :name, format: {with: VALID_JAP_ZENKAKU_EN_HANKAKU_REGEX , message: :invalid_name_job}, presence: true, unless: :guest_account?
-  validates :job, format: {with: VALID_JAP_ZENKAKU_EN_HANKAKU_REGEX, message: :invalid_name_job}, presence: true, unless: :guest_account?
+  #validates :job, format: {with: VALID_JAP_ZENKAKU_EN_HANKAKU_REGEX, message: :invalid_name_job}, presence: true, unless: :guest_account?
   #validates :postcode, format: {with: VALID_POSTCODE_REGEX, message: :invalid_postcode}, presence: true, unless: :guest_account?
   validates :street_address, format: {with: VALID_STREET_ADDRESS_REGEX, message: :invalid_street_address}, presence: true, unless: :guest_account?
   #validates :email, format: {with: VALID_EMAIL_REGEX, message: :invalid_email}, uniqueness: true, presence: true, unless: :guest_account?
