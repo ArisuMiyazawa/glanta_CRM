@@ -17,6 +17,7 @@
          </div>
           <%= link_to "予約変更", edit_reservation_path(customer_id: @customer.id) %>
           <%= link_to "予約取消", reservation_path(id: @reservation.id), method: :delete, data:{confirm:"本当に予約を取り消しますか？"} %>
+          <%= link_to "顧客情報", customer_path(id: @customer.id) %>
           <%= link_to "カルテ一覧", treatment_records_path(customer_id: @customer.id, reservation_id: @reservation.id) %>
           <%= link_to "次回予約", new_reservation_path(customer_id: @customer.id) %>
       </div>
